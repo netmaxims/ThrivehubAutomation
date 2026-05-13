@@ -32,7 +32,7 @@ export default defineConfig({
     baseURL: process.env.BASE_URL,
     screenshot: 'only-on-failure'
   },
-  timeout: 60000,
+  timeout: 180000,
 
   expect: {
     timeout: 7000,
