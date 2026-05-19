@@ -21,8 +21,9 @@ export default defineConfig({
   reporter: 'html',
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
-    
     trace: 'on-first-retry',
+    screenshot: 'only-on-failure',
+    video: 'retain-on-failure',
     launchOptions: {
       slowMo: 500,
       args: ['--start-maximized', '--window-size=1920,1080']
@@ -30,7 +31,6 @@ export default defineConfig({
     viewport: null,
     headless: true,
     baseURL: process.env.BASE_URL,
-    screenshot: 'only-on-failure'
   },
   timeout: 180000,
 

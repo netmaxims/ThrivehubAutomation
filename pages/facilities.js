@@ -91,13 +91,12 @@ async function EditPermissions(page, timeStamp) {
 }
 
 async function setFacilityActive(page, facilityName) {
-    // click the edit button in facility
+    
     await page.locator(locator.searchBox).fill(facilityName);
     await page.locator(locator.editFacilityButton).first().click();
-    // click the active toggle button
-    if (await page.locator(locator.facilityVisibilityCheckbox).isUnchecked()) {
+    if (!(await page.locator(locator.facilityVisibilityCheckbox).isChecked())) {
     await page.locator(locator.facilityVisibilityCheckbox).click();
-    }
+}
     await page.locator(locator.saveChangeButton).click();
 }
 

@@ -13,7 +13,7 @@
     "loginBtn" : "//button[@type='submit']",
     "logoutButton":"//div//p[contains(., 'Logout Admin')]",
     "searchBox":"input[placeholder*='Search']",
-    "paginationCount":"//div[text()='Rows per page:']/..//../preceding::button//span[1]",
+    "paginationCount":"(//div[text()='Rows per page:']//button//span)[1]",
     "rows":"//tr",
     "heading":"//h2",
     "img":"//div[@class='group relative h-full aspect-video w-full']//img",

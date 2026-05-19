@@ -1,4 +1,4 @@
-import { test, expect } from '@playwright/test';
+import { test, expect } from './test-fixtures';
 import {login,search,navigateTo} from '../utils/general.js';
 import {addClass,navigateToFacility,editClass} from '../pages/class.js';
 

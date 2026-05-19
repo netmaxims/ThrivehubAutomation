@@ -1,6 +1,6 @@
-import { test, expect } from '@playwright/test';
+import { test, expect } from './test-fixtures';
 import {login,search,navigateTo} from '../utils/general.js';
-import {addFacility, editFacility,verifyEdit} from '../pages/facilities.js'
+import {addFacility, editFacility,verifyEdit,setFacilityActive} from '../pages/facilities.js'
 import { timeStamp } from 'console';
 
 test('facilities check', async ({ page }) => {
@@ -19,4 +19,11 @@ test('Edit facility',async ({ page })=>{
   await verifyEdit(page,'Test title : upd');
   //also verify the facility edit when ticket 146 is solved
   //delete all the updated facilities in a loop when feature is developed
+});
+
+test('Set Facility Active',async ({ page })=>{
+  await login(page);
+  await navigateTo(page,'Facilities');
+  await setFacilityActive(page,'Test title : upd');
+  //verify the facility is active by searching and checking the visibility or any other way when feature is developed
 });

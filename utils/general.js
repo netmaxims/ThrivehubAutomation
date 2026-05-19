@@ -34,6 +34,7 @@ async function logout(page) {
 }
 
 async function search(page, searchText) {
+  searchText = String(searchText);
   const searchBox = page.locator(locator.searchBox);
   await searchBox.fill(searchText);
 
@@ -64,7 +65,8 @@ async function search(page, searchText) {
 const tabHeadingMap = {
   Facilities: 'Facility Network',
   Classes: 'Classes Management',
-  Dashboard: 'Dashboard'
+  Dashboard: 'Dashboard',
+  'Trainers & Locations': 'Control Center'
 };
 
 async function navigateTo(page, key) {
