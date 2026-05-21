@@ -41,7 +41,6 @@ async function addLocation(page, timeStamp) {
   await page.locator('//button[normalize-space()="Submit"]').click();
   
   await page.waitForSelector("//div[@role='status' and text()='Location created successfully.']", { timeout: 5000 });
-
 } 
 
 
