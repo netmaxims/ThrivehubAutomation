@@ -12,7 +12,7 @@ async function createslot(page,timestamp) {
   await page.getByText('Test title : upd').first().click();
   await page.getByRole('button', { name: 'Class Level Select level' }).click();
   await page.getByRole('option', { name: `Title test : ${timestamp}` }).click();
-
+ 
   await page.getByRole('button', { name: 'Trainer Select Trainer' }).click();
   await page.locator(`//div[contains(text(),'Test name : ')]`).first().click();
   
