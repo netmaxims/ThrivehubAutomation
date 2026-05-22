@@ -4,9 +4,10 @@ import locator from '../locators/locators.json';
 import { text } from 'stream/consumers';
 
 async function addClass(page,facilityName,Timestamp) {
+    console.log('add class method called');
     await page.locator(locator.addClassButton).click();
-    await page.getByRole('button', { name: 'Host Facility Choose location' }).click();
-    await page.getByRole('option', { name: facilityName }).click();
+    await page.locator(locator.facilityDropdown).click();
+    await page.locator("//div[@class='text-foreground'][normalize-space()='Test title : upd']").first().click();
     await page.getByRole('textbox', { name: 'Class Title' }).fill('Title test : '+Timestamp);
     await page.locator(locator.imageInput).setInputFiles(path.resolve('resources/class.jpg'));
     await page.waitForTimeout(10000); // can remove this when the time issue here is fixed
@@ -22,10 +23,11 @@ async function addClass(page,facilityName,Timestamp) {
 }
 
 async function editClass(page) {
-    
+    console.log('edit class method called');
 }
 
 async function navigateToFacility(page, facilityName) {
+    console.log('navigating to facility: ' + facilityName);
     await page.getByRole('button', { hasText: facilityName }).click();
 }
 
@@ -34,23 +36,4 @@ export {addClass,editClass,navigateToFacility};
 
   
   
-//   await page.getByRole('button', { name: 'Host Facility Choose location' }).click();
-//   await page.getByRole('option', { name: 'Test title : upd' }).click();
-//   await page.getByRole('option', { name: 'Test title : upd' }).click();
-//   await page.getByRole('textbox', { name: 'Class Title' }).press('CapsLock');
-//   await page.getByRole('textbox', { name: 'Class Title' }).fill('T');
-//   await page.getByRole('textbox', { name: 'Class Title' }).press('CapsLock');
-//   await page.getByRole('textbox', { name: 'Class Title' }).fill('Title test');
-//   await page.locator('div').filter({ hasText: /^Upload Cover PhotoJPG, JPEG, PNG, WEBP & Max 5MB$/ }).nth(2).click();
-//   await page.locator('#headlessui-dialog-_r_1g_').setInputFiles('Large_elegant_event_202604131751.png');
-//   await page.getByRole('button', { name: 'Class Level All Levels' }).click();
-//   await page.getByRole('option', { name: 'Beginner' }).click();
-//   await page.getByRole('textbox', { name: 'Price Per Sessions ($)' }).click();
-//   await page.getByRole('textbox', { name: 'Price Per Sessions ($)' }).fill('0100');
-//   await page.getByRole('textbox', { name: 'Duration' }).click();
-//   await page.getByRole('textbox', { name: 'Duration' }).fill('1h');
-//   await page.getByRole('textbox', { name: 'Member Checklist' }).click();
-//   await page.getByRole('textbox', { name: 'Member Checklist' }).fill('member 1');
-//   await page.getByRole('textbox', { name: 'Quick Intro' }).click();
-//   await page.getByRole('textbox', { name: 'Quick Intro' }).fill('intro of class');
-//   await page.getByRole('button', { name: 'Create Class' }).click();
+

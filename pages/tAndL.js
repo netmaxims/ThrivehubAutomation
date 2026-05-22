@@ -5,10 +5,11 @@ import { text } from 'stream/consumers';
 import { time } from 'console';
 
 async function addTrainer(page, timeStamp) {
+  console.log('Adding trainer method called');
   await page.locator('//button/span[text()="Trainers"]').click();
   await page.getByRole('button', { name: 'Add Trainer' }).click();
   await page.getByRole('button', { name: 'Choose Facilities...' }).click();
-  await page.getByRole('option', { name: 'Test title : upd' }).click();
+  await page.getByRole('option', { name: 'Test title : upd' }).first().click();
   await page.keyboard.press('Escape'); 
   await page.locator('//span[contains(normalize-space(), "classes cancel")]/ancestor::*[2]//input').first().click({force:true});
   await page.locator('//span[contains(normalize-space(), "classes reschedule")]/ancestor::*[2]//input').first().click({force:true});
@@ -21,7 +22,7 @@ async function addTrainer(page, timeStamp) {
   await page.getByRole('textbox', { name: 'Specialization' }).fill('test spec');
   await page.getByRole('textbox', { name: 'Rank' }).fill('1');
 
-  const filePath = path.resolve(__dirname, '../resources/trainer.jpg');
+  const filePath = path.resolve(__dirname, '../resources/trainer.jpg');   
   await page.locator('input[type="file"]').setInputFiles(filePath);
   await page.waitForTimeout(10000); // Wait for upload/render
 
@@ -32,10 +33,11 @@ async function addTrainer(page, timeStamp) {
 };
 
 async function addLocation(page, timeStamp) {
+  console.log('Adding location method called');
   await page.locator('//button/span[text()="Locations"]').click();
   await page.locator('//button[text()="Add Location"]').click();
   await page.getByRole('button', { name: 'Choose Facilities...' }).click();
-  await page.getByRole('option', { name: 'Test title : upd' }).click();
+  await page.getByRole('option', { name: 'Test title : upd' }).first().click();
   await page.keyboard.press('Escape');
   await page.locator('//input[@placeholder="e.g. Rahul Sharma"]').fill('Test name : ' + timeStamp);
   await page.locator('//button[normalize-space()="Submit"]').click();

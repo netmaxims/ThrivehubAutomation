@@ -4,6 +4,7 @@ import path from 'path';
 import locator from '../locators/locators.json';
 
 async function addFacility(page) {
+    console.log('Adding facility method called');
     const timeStamp = new Date().toISOString().replace(/[:.]/g, '-');
     await page.locator(locator.addFacilityButton).click();
     await page.locator(locator.facilityTitleInput).fill(`Test title : ${timeStamp}`);
@@ -20,7 +21,7 @@ async function addFacility(page) {
 }
 
 async function editFacility(page) {
-
+    console.log('Editing facility method called');
     await page.locator(locator.editFacilityButton).first().click();
 
     await page.locator(locator.facilityTitleInput)
@@ -77,6 +78,7 @@ async function editFacility(page) {
 }
 
 async function verifyEdit(page,timeStamp){
+    console.log('verifying edit for facility: ' + timeStamp);
     await page.reload();
     await page.locator(locator.searchBox).fill('TEST TITLE : UPD');
     await page.waitForTimeout(2000);
@@ -85,14 +87,16 @@ async function verifyEdit(page,timeStamp){
 }
 
 async function EditPermissions(page, timeStamp) {
+    console.log('Editing permissions for facility: ' + timeStamp);
     await page.reload();
     await page.locator(``).click();
 
 }
 
 async function setFacilityActive(page, facilityName) {
-    
+    console.log('Setting facility active: ' + facilityName);
     await page.locator(locator.searchBox).fill(facilityName);
+    await page.waitForTimeout(1000);
     await page.locator(locator.editFacilityButton).first().click();
     if (!(await page.locator(locator.facilityVisibilityCheckbox).isChecked())) {
     await page.locator(locator.facilityVisibilityCheckbox).click();
