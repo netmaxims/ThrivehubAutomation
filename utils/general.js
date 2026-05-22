@@ -8,8 +8,8 @@ async function login(page) {
   const emailInput = page.locator('#email');
   const passwordInput = page.locator('#password');
 
-  await emailInput.fill('admin@yopmail.com');
-  await passwordInput.fill('Admin@12345');
+  await emailInput.fill(process.env.USER_EMAIL);
+  await passwordInput.fill(process.env.USER_PASSWORD);
 
   await page.locator(locator.loginBtn).click();
 
