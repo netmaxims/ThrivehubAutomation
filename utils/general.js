@@ -68,7 +68,8 @@ const tabHeadingMap = {
   Dashboard: 'Dashboard',
   'Trainers & Locations' : 'Control Center',
   Timetable: 'Timetable Management',
-  Products : 'Products'
+  Products : 'Products',
+  Passes : 'Passes'
 };
 
 async function navigateTo(page, key) {

@@ -21,7 +21,7 @@ async function createslot(page,timestamp) {
   await page.getByRole('button', { name: 'Slot Status Select Status' }).click();
   await page.locator('//div[contains(text(),"Available")]').click();
   const currentHour = new Date().getHours().toString().padStart(2, '0');
-  await page.getByRole('textbox', { name: 'Time' }).fill(`${currentHour}:00`);
+  await page.getByRole('textbox', { name: 'Time' }).fill(`${currentHour}:00`);  
   await page.getByRole('textbox', { name: 'Duration' }).fill('1h');
   await page.getByRole('textbox', { name: 'Max Booking' }).fill('100');
   await page.getByRole('textbox', { name: 'Persons / Bookings' }).fill('2');
